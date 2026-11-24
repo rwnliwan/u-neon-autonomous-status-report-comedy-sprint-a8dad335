@@ -30,7 +30,15 @@
 
 ## Bundle / check
 
-(Belum jalan — diisi setelah bundle v1 + check.)
+| Versi | Bundle | Check |
+|-------|--------|-------|
+| v1 | `bundle-1-v1.tar.gz`, 811.988 bytes, sha256 `c5b809e5735e1dfba031b6f58245b4164cc353e7d9092d427b94f250e7a88747` (commit `5ffed320a6d7b546c8da6f57018adc5ec5b22aa9`) | **13 passed / 1 failed / 5 skipped** — hanya `thinking_priced` gagal (0 usage rows: usage rows subagent baru flush saat run selesai — ekspektasi; koordinator re-bundle dengan `--muse-usage` sesudah run selesai untuk 14/0). `thinking_reproduces` 90,9% (40/44 lines, 0 pasted), `thinking_revised` PASS, `thinking_wellformed` PASS, `thinking_in_window` PASS. 5 "at submission" (repo_public, repo_owner, repo_created_after_open, commit_in_repo, duplicate_snapshot) belum bisa lolos karena repo GitHub belum terbentuk (rate limit, lihat bawah). |
+
+## GitHub
+
+- 24 Nov ~18:59 WITA: `gh repo create` GAGAL — `GraphQL: You have created too many repositories, too quickly. Please try again later. (createRepository)`.
+- 24 Nov ~19:05 WITA: retry setelah 5 menit — masih rate limit. Menunggu jendela reset lebih lama lalu retry; repo lokal sudah commit, push + set About dilakukan begitu create berhasil.
+- About (set saat repo terbentuk): homepage `https://make.fun/c/u-neon-autonomous-status-report-comedy-sprint-a8dad335`, topik `makefun`; verifikasi via `gh api repos/rwnliwan/<slug> --jq '{homepage, topics}'`.
 
 ## Status
 

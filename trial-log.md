@@ -33,12 +33,13 @@
 | Versi | Bundle | Check |
 |-------|--------|-------|
 | v1 | `bundle-1-v1.tar.gz`, 811.988 bytes, sha256 `c5b809e5735e1dfba031b6f58245b4164cc353e7d9092d427b94f250e7a88747` (commit `5ffed320a6d7b546c8da6f57018adc5ec5b22aa9`) | **13 passed / 1 failed / 5 skipped** — hanya `thinking_priced` gagal (0 usage rows: usage rows subagent baru flush saat run selesai — ekspektasi; koordinator re-bundle dengan `--muse-usage` sesudah run selesai untuk 14/0). `thinking_reproduces` 90,9% (40/44 lines, 0 pasted), `thinking_revised` PASS, `thinking_wellformed` PASS, `thinking_in_window` PASS. 5 "at submission" (repo_public, repo_owner, repo_created_after_open, commit_in_repo, duplicate_snapshot) belum bisa lolos karena repo GitHub belum terbentuk (rate limit, lihat bawah). |
+| v2 | `bundle-1-v2.tar.gz`, 827.587 bytes, sha256 `2f78278afdd7df24243b37bd50dad1a6eea4cee180bb8baeb2457d374032ac00` (commit `ac45818033364dfbb948c42fcf4e90f30e6fc1eb`, sudah push) | **13 passed / 1 failed / 5 skipped** — lagi-lagi hanya `thinking_priced` gagal (ekspektasi, sama). `thinking_reproduces` 89,7% (44/49 lines, 0 pasted), `thinking_revised` PASS. Repo GitHub kini ADA + public + About terverifikasi (lihat bawah), jadi 5 "at submission" siap dinilai saat submit oleh chief. |
 
 ## GitHub
 
 - 24 Nov ~18:59 WITA: `gh repo create` GAGAL — `GraphQL: You have created too many repositories, too quickly. Please try again later. (createRepository)`.
 - 24 Nov ~19:05 WITA: retry setelah 5 menit — masih rate limit. Menunggu jendela reset lebih lama lalu retry; repo lokal sudah commit, push + set About dilakukan begitu create berhasil.
-- About (set saat repo terbentuk): homepage `https://make.fun/c/u-neon-autonomous-status-report-comedy-sprint-a8dad335`, topik `makefun`; verifikasi via `gh api repos/rwnliwan/<slug> --jq '{homepage, topics}'`.
+- 24 Nov 19:21 WITA: retry setelah 20 menit — **BERHASIL**. Repo `rwnliwan/u-neon-autonomous-status-report-comedy-sprint-a8dad335` terbentuk (created_at 2026-11-24T11:21:12Z, setelah opens_at 10:22:01Z) + push HEAD v2. About terverifikasi via `gh api`: homepage `https://make.fun/c/u-neon-autonomous-status-report-comedy-sprint-a8dad335`, topics `["makefun"]`, visibility `public`.
 
 ## Status
 
